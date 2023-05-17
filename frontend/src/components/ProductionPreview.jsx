@@ -1,35 +1,88 @@
-import React from 'react'
-
-import { Swiper, SwiperSlide } from "swiper/react";
+import React from "react";
 
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 
-import { Autoplay, FreeMode } from "swiper";
+import media1 from "../assets/img/Media-1.png";
+import media2 from "../assets/img/Media-2.png";
+import media3 from "../assets/img/Media-3.png";
+import media4 from "../assets/img/Media-4.png";
+import media5 from "../assets/img/Media-5.png";
+import media6 from "../assets/img/Media-6.png";
+import media7 from "../assets/img/Media-7.png";
+import media8 from "../assets/img/Media-8.png";
+import media9 from "../assets/img/Media-9.png";
+import media10 from "../assets/img/Media-10.png";
+import media11 from "../assets/img/Media-11.png";
+import media12 from "../assets/img/Media-12.png";
+import media13 from "../assets/img/Media-13.png";
+import media14 from "../assets/img/Media-13.png";
+
+const mediaArray = [
+  media1,
+  media2,
+  media3,
+  media4,
+  media5,
+  media6,
+  media7,
+  media8,
+  media9,
+  media10,
+  media11,
+  media12,
+  media13,
+  media14,
+];
 
 const ProductionPreview = () => {
   return (
     <>
-      <Swiper
-        slidesPerView={3}
-        spaceBetween={24}
-        freeMode={true}
-        autoplay={{
-          delay: 1500,
-          disableOnInteraction: false,
-          waitForTransition: false
-        }}
-        modules={[FreeMode, Autoplay]}
-        className="productionSwiper"
-      >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-      </Swiper>
+      <div className="slider">
+        <div className="slider-track">
+          {mediaArray.map((item, idx) => {
+            if (idx < 7) {
+              return (
+                <div className="slider-item" key={idx}>
+                  <img src={item} alt="" />
+                </div>
+              );
+            }
+          })}
+          {mediaArray.map((item, idx) => {
+            if (idx < 7) {
+              return (
+                <div className="slider-item" key={idx}>
+                  <img src={item} alt="" />
+                </div>
+              );
+            }
+          })}
+        </div>
+        <div className="slider-track reversed">
+          {mediaArray.map((item, idx) => {
+            if (idx >= 7) {
+              return (
+                <div className="slider-item" key={idx}>
+                  <img src={item} alt="" />
+                </div>
+              );
+            }
+          })}
+          {mediaArray.map((item, idx) => {
+            if (idx >= 7) {
+              return (
+                <div className="slider-item" key={idx}>
+                  <img src={item} alt="" />
+                </div>
+              );
+            }
+          })}
+        </div>
+      </div>
     </>
   );
-}
+};
 
-export default ProductionPreview
+export default ProductionPreview;

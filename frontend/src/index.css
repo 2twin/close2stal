@@ -101,6 +101,7 @@ body {
   right: 0;
   top: 0;
   background-color: var(--header-secondary);
+  z-index: 2;
 }
 
 .header__list {
@@ -574,4 +575,56 @@ section .btn-outline {
   height: 8px;
   background-color: var(--primary);
   transition: all .3s;
+}
+
+.slider {
+  height: 600px;
+  margin: auto;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+.slider-track {
+  display: flex;
+  gap: 20px;
+  width: calc(447px * 14);
+  animation: scroll 20s linear infinite;
+}
+
+.slider-track.reversed {
+  animation: scroll 20s linear infinite reverse;
+}
+
+.slider-item {
+  height: 271px;
+  width: 447px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  border-radius: 20px;
+}
+
+.slider-item img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-600px * 4));
+  }
 }
