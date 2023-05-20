@@ -18,6 +18,7 @@ import media11 from "../assets/img/Media-11.png";
 import media12 from "../assets/img/Media-12.png";
 import media13 from "../assets/img/Media-13.png";
 import media14 from "../assets/img/Media-13.png";
+import { NavLink } from "react-router-dom";
 
 const mediaArray = [
   media1,
@@ -44,18 +45,26 @@ const ProductionPreview = () => {
           {mediaArray.map((item, idx) => {
             if (idx < 7) {
               return (
-                <div className="slider-item" key={idx}>
-                  <img src={item} alt="" />
-                </div>
+                <NavLink to="/production" key={idx}>
+                  <div className="slider-item">
+                    <img src={item} alt="" />
+                    <span className="tag">Music</span>
+                    <span className="title">Lorem Ipsum</span>
+                  </div>
+                </NavLink>
               );
             }
           })}
           {mediaArray.map((item, idx) => {
             if (idx < 7) {
               return (
-                <div className="slider-item" key={idx}>
-                  <img src={item} alt="" />
-                </div>
+                <NavLink to="/production" key={idx}>
+                  <div className="slider-item" key={idx}>
+                    <img src={item} alt="" />
+                    <span className="tag">Music</span>
+                    <span className="title">Lorem Ipsum</span>
+                  </div>
+                </NavLink>
               );
             }
           })}
@@ -64,18 +73,26 @@ const ProductionPreview = () => {
           {mediaArray.map((item, idx) => {
             if (idx >= 7) {
               return (
-                <div className="slider-item" key={idx}>
-                  <img src={item} alt="" />
-                </div>
+                <NavLink to="/production" key={idx}>
+                  <div className="slider-item" key={idx}>
+                    <img src={item} alt="" />
+                    <span className="tag">Music</span>
+                    <span className="title">Lorem Ipsum</span>
+                  </div>
+                </NavLink>
               );
             }
           })}
           {mediaArray.map((item, idx) => {
             if (idx >= 7) {
               return (
-                <div className="slider-item" key={idx}>
-                  <img src={item} alt="" />
-                </div>
+                <NavLink to="/production" key={idx}>
+                  <div className="slider-item" key={idx}>
+                    <img src={item} alt="" />
+                    <span className="tag">Music</span>
+                    <span className="title">Lorem Ipsum</span>
+                  </div>
+                </NavLink>
               );
             }
           })}

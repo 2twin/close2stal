@@ -45,7 +45,7 @@ const TourList = ({ tourList }) => {
       <div className="container">
         <div className="tour__inner">
           <h2 className="section-title">Tour</h2>
-          {isTourPage && isEditing && <button className="add-btn" onClick={toggleIsEditing}>+</button>}
+          {isTourPage && <button className={"add-btn" + (!isEditing ? " close" : "")} onClick={toggleIsEditing}>+</button>}
           {isEditing ? (
             <ul className="tour__list">
               <li className="tour__tabs">

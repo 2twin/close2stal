@@ -11,6 +11,7 @@ html {
 body,
 * {
   font-family: "Space Grotesk", sans-serif;
+  transition: all .3s;
 }
 
 :root {
@@ -21,7 +22,12 @@ body,
   --outline-hover: rgba(245, 255, 246, 0.2);
   --primary-hover: rgba(192, 253, 197, 0.2);
   --gray: #979797;
+  --light-gray: #bababa;
   --header-secondary: rgba(192, 253, 197, 0.2);
+}
+
+::placeholder {
+  color: inherit;
 }
 
 .font-bold {
@@ -101,7 +107,7 @@ body,
   left: 0;
   right: 0;
   top: 0;
-  background-color: var(--header-secondary);
+  background-color: var(--black);
   z-index: 2;
 }
 
@@ -110,7 +116,7 @@ body,
   justify-content: space-between;
   width: 100%;
   align-items: center;
-  color: var(--black);
+  color: var(--white);
   z-index: 9999;
 }
 
@@ -508,6 +514,7 @@ section .btn-outline {
   background-image: url(./assets/img/production-hero.png);
   background-size: cover;
   background-position: right;
+  margin-top: 98px;
 }
 
 .productionHero__inner {
@@ -605,10 +612,27 @@ section .btn-outline {
   height: 271px;
   width: 447px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
   overflow: hidden;
   position: relative;
   border-radius: 20px;
+  color: var(--white);
+}
+
+.slider-item .title {
+  padding: 24px;
+  display: block;
+  width: 100%;
+}
+
+.slider-item .tag {
+  text-align: right;
+  padding: 13px 30px;
+  background: var(--primary);
+  mix-blend-mode: luminosity;
+  border-radius: 0px 0px 0px 8px;
 }
 
 .slider-item img {
@@ -618,6 +642,7 @@ section .btn-outline {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: -1;
 }
 
 @keyframes scroll {
@@ -642,6 +667,10 @@ section .btn-outline {
   cursor: pointer;
 }
 
+.add-btn.close {
+  transform: rotate(45deg);
+}
+
 .standart-form {
   display: flex;
   flex-direction: column;
@@ -660,7 +689,8 @@ section .btn-outline {
   text-transform: uppercase;
 }
 
-.standart-form input {
+.standart-form input,
+.standart-form .file {
   height: 70px;
   border: 2px solid var(--white);
   background: none;
@@ -671,6 +701,12 @@ section .btn-outline {
   line-height: 41px;
 }
 
+.standart-form .file {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+}
+
 .standart-form .btn {
   max-width: 175px;
   margin-top: 16px;
@@ -678,3 +714,62 @@ section .btn-outline {
   font-size: 32px;
   line-height: 41px;
 }
+
+.standart-form input[type="file"] {
+  display: none;
+}
+
+.standart-form_black {
+  gap: 50px;
+}
+
+.standart-form_black input,
+.standart-form_black .file {
+  border-color: var(--black);
+  color: var(--black);
+  width: 100%;
+}
+
+.standart-form_black .btn {
+  max-width: 100%;
+  margin: 0;
+}
+
+.addProduction {
+  background-color: var(--light-gray);
+  padding-top: 122px;
+  height: 846px;
+}
+
+.addProduction__heading {
+  display: block;
+  text-align: center;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 82px;
+}
+
+.addProduction__tabs {
+  display: flex;
+  gap: 32px;
+  margin-top: 70px;
+}
+
+.addProduction__tab {
+  width: 100%;
+  height: 262px;
+  border: 2px solid var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 82px;
+  background: none;
+}
+
+.addProduction__tab:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
