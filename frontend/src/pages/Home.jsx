@@ -6,12 +6,14 @@ import Store from "../components/StorePreview";
 import ProductionPreview from "../components/ProductionPreview";
 import SpotlightPreview from "../components/SpotlightPreview";
 
+import { tourList } from '../data';
+
 const Home = () => {
   return (
     <>
       <Hero />
       <Bio />
-      <TourList />
+      <TourList tourList={tourList} />
       <ProductionPreview />
       <SpotlightPreview />
       <Store />

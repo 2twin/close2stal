@@ -1,9 +1,11 @@
 import React from 'react'
-import TourList from '../components/TourList'
+import TourList from '../components/TourList';
+
+import { tourList } from '../data';
 
 const Tour = () => {
   return (
-    <TourList />
+    <TourList tourList={tourList} />
   )
 }
 

@@ -8,7 +8,8 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
+body,
+* {
   font-family: "Space Grotesk", sans-serif;
 }
 
@@ -90,7 +91,7 @@ body {
   color: var(--white);
   display: block;
   text-align: center;
-  padding-top: 64px;
+  padding-top: 98px;
   text-transform: uppercase;
 }
 
@@ -574,7 +575,7 @@ section .btn-outline {
   left: 0;
   height: 8px;
   background-color: var(--primary);
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 .slider {
@@ -627,4 +628,53 @@ section .btn-outline {
   100% {
     transform: translateX(calc(-600px * 4));
   }
+}
+
+.add-btn {
+  background-color: var(--white);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  font-size: 90px;
+  line-height: 70%;
+  display: block;
+  margin: 30px auto;
+  cursor: pointer;
+}
+
+.standart-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 635px;
+  gap: 64px;
+  margin: 0 auto;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.standart-form__heading {
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 59px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.standart-form input {
+  height: 70px;
+  border: 2px solid var(--white);
+  background: none;
+  color: var(--white);
+  padding: 0 30px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 41px;
+}
+
+.standart-form .btn {
+  max-width: 175px;
+  margin-top: 16px;
+  height: 97px;
+  font-size: 32px;
+  line-height: 41px;
 }
