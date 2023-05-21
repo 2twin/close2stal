@@ -517,6 +517,10 @@ section .btn-outline {
   margin-top: 98px;
 }
 
+.productionHero_store {
+  background-image: url(./assets/img/store-hero.png);
+}
+
 .productionHero__inner {
   display: flex;
   align-items: center;
@@ -773,3 +777,8 @@ section .btn-outline {
   color: var(--white);
 }
 
+.login {
+  margin-top: 98px;
+  background-color: var(--light-gray);
+  padding: 40px 0;
+}
