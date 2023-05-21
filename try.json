@@ -1,0 +1,38 @@
+{
+  "tour": [
+    {
+      "id": 1,
+      "date": "12.07.23",
+      "country": "Benin",
+      "city": "Cotonou"
+    },
+    {
+      "date": "Fri,20 Fev 2023",
+      "venue": "Stade de France",
+      "city": "Paris",
+      "country": "France",
+      "id": 2
+    },
+    {
+      "date": "29.12.2022",
+      "venue": "stade de france",
+      "city": "paris",
+      "country": "France",
+      "id": 3
+    },
+    {
+      "date": "29.12.2022",
+      "venue": "maison du peuple",
+      "city": "paris",
+      "country": "France",
+      "id": 4
+    },
+    {
+      "date": "29.12.2024",
+      "venue": "Bercy",
+      "city": "paris",
+      "country": "France",
+      "id": 5
+    }
+  ]
+}

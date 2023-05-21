@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+// import * as tour from "../../../../Tours.js";
+// console.log(tour)
 const initialTourState = {
   date: "",
   venue: "",
@@ -26,19 +27,28 @@ const TourList = ({ tourList }) => {
     setIsEditing(!isEditing);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async  (event) => {
     event.preventDefault();
     const newDate = {
-      id: crypto.randomUUID(),
+     // id: crypto.randomUUID(),
       date: tourState.date,
       venue: tourState.venue,
       city: tourState.city,
       country: tourState.country,
     };
 
+
+// il y a juste cette partie là à faire, la partie de la requête 
+console.log(newDate)
+await fetch('http://localhost:3000/tour',{
+method: 'POST',
+body: JSON.stringify(newDate),
+headers:{'Content-type': 'application/json'}
+});
     tourList.push(newDate);
-    toggleIsEditing();
-  };
+ toggleIsEditing()
+}
+    
 
   return (
     <section className="tour" id="tour">
@@ -102,7 +112,7 @@ const TourList = ({ tourList }) => {
                 onChange={handleInputChange}
                 required
               />
-              <button className="btn btn-primary">Save</button>
+              <button type="submit" className="btn btn-primary">Save</button>
             </form>
           )}
           <Link to="/tour">
