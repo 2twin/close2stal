@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 
-import mediaSmall from "../assets/img/media-small.png";
-import mediaLarge from "../assets/img/media-large.png";
+import overlayArrow from "../assets/img/overlay-arrow.svg";
 
 import AddStoreItem from "./AddStoreItem";
 
-const productionCategories = () => {
+const storeCategories = ({ isLogged, store }) => {
   const [activeCategory, setActiveCategory] = useState("all");
 
   const handleTabClick = (e) => {
     setActiveCategory(e.target.dataset.category);
-  }
+  };
 
   const renderCategory = () => {
     switch (activeCategory) {
@@ -19,54 +18,54 @@ const productionCategories = () => {
           <div className="productionCategory productionMusic">
             <div className="container">
               <div className="productionGrid">
-                <div className="productionItem">
-                  <span className="font-bold">Aubi Gold</span>
-                  <div className="productionItem__img">
-                    <img src={mediaSmall} alt="" />
+                {store.map((item) => (
+                  <div className="productionItem" key={item._id}>
+                    <span className="font-bold">{item.title}</span>
+                    <div className="productionItem__img">
+                      <img src={item.images[0]} alt="" />
+                    </div>
+                    <div className="overlay">
+                      <span className="overlay-btn">
+                        Buy now
+                        <img src={overlayArrow} alt="" />
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div className="productionItem">
-                  <span className="font-bold">Aubi Gold</span>
-                  <div className="productionItem__img">
-                    <img src={mediaLarge} alt="" />
-                  </div>
-                </div>
-                <div className="productionItem">
-                  <span className="font-bold">Aubi Gold</span>
-                  <div className="productionItem__img">
-                    <img src={mediaSmall} alt="" />
-                  </div>
-                </div>
-                <div className="productionItem">
-                  <span className="font-bold">Aubi Gold</span>
-                  <div className="productionItem__img">
-                    <img src={mediaSmall} alt="" />
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
         );
       default:
-        return (
-          <AddStoreItem/>
-        )
+        return <AddStoreItem />;
     }
-  }
+  };
 
   return (
     <>
       <div className="productionTabs">
         <div className="container">
-          <span className={"tab" + (activeCategory === "all" ? " active" : "")} data-category="all" onClick={handleTabClick}>All</span>
-          <span className={"tab" + (activeCategory === "add" ? " active" : "")} data-category="add" onClick={handleTabClick}>Add Product</span>
+          <span
+            className={"tab" + (activeCategory === "all" ? " active" : "")}
+            data-category="all"
+            onClick={handleTabClick}
+          >
+            Merch
+          </span>
+          {isLogged && (
+            <span
+              className={"tab" + (activeCategory === "add" ? " active" : "")}
+              data-category="add"
+              onClick={handleTabClick}
+            >
+              Add Product
+            </span>
+          )}
         </div>
       </div>
-      {
-        renderCategory()
-      }
+      {renderCategory()}
     </>
   );
 };
 
-export default productionCategories;
+export default storeCategories;

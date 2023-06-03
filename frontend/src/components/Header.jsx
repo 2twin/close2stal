@@ -2,7 +2,7 @@ import React from "react";
 import mainLogo from "../assets/img/main-logo.svg";
 import { NavLink } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ isLogged, setIsLogged }) => {
   return (
     <header className="header">
       <div className="container">
@@ -14,20 +14,51 @@ const Header = () => {
               </NavLink>
             </li>
             <li className="font-bold">
-              <NavLink className={({isActive}) => isActive ? "activeLink" : ""} to="/production">Production</NavLink>
+              <NavLink
+                className={({ isActive }) => (isActive ? "activeLink" : "")}
+                to="/production"
+              >
+                Production
+              </NavLink>
             </li>
             <li className="font-bold">
-            <NavLink className={({isActive}) => isActive ? "activeLink" : ""} to="/tour">Tour</NavLink>
+              <NavLink
+                className={({ isActive }) => (isActive ? "activeLink" : "")}
+                to="/tour"
+              >
+                Tour
+              </NavLink>
             </li>
             <li className="font-bold">
-              <NavLink className={({isActive}) => isActive ? "activeLink" : ""} to="/spotlight">Spotlight</NavLink>
+              <NavLink
+                className={({ isActive }) => (isActive ? "activeLink" : "")}
+                to="/spotlight"
+              >
+                Spotlight
+              </NavLink>
             </li>
             <li className="font-bold">
-            <NavLink className={({isActive}) => isActive ? "activeLink" : ""} to="/store">Store</NavLink>
+              <NavLink
+                className={({ isActive }) => (isActive ? "activeLink" : "")}
+                to="/store"
+              >
+                Store
+              </NavLink>
             </li>
-            <li className="font-bold">
-              <NavLink className={({isActive}) => isActive ? "activeLink" : ""} to="/login">Login/SignUp</NavLink>
-            </li>
+            {!isLogged ? (
+              <li className="font-bold">
+                <NavLink
+                  className={({ isActive }) => (isActive ? "activeLink" : "")}
+                  to="/login"
+                >
+                  Login
+                </NavLink>
+              </li>
+            ) : (
+              <li className="font-bold" onClick={() => setIsLogged(false)}>
+                Logout
+              </li>
+            )}
           </ul>
         </nav>
       </div>

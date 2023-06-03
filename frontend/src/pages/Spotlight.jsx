@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import SpotlightPreview from "../components/SpotlightPreview";
 
 const Spotlight = () => {
-  return (
-    <div>Spotlight</div>
-  )
-}
+  return <SpotlightPreview />;
+};
 
-export default Spotlight
+export default Spotlight;

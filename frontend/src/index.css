@@ -11,7 +11,7 @@ html {
 body,
 * {
   font-family: "Space Grotesk", sans-serif;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 :root {
@@ -39,6 +39,7 @@ body,
   border: none;
   text-transform: uppercase;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .btn-primary {
@@ -536,6 +537,7 @@ section .btn-outline {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
+  align-items: end;
 }
 
 .productionCategory {
@@ -558,11 +560,16 @@ section .btn-outline {
 
 .productionItem__img {
   width: 100%;
-  border-radius: 10px;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .productionItem__img img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .productionTabs .tab {
@@ -606,6 +613,11 @@ section .btn-outline {
   gap: 20px;
   width: calc(447px * 14);
   animation: scroll 20s linear infinite;
+}
+
+.slider-track:hover,
+.slider-track.reversed:hover {
+  animation-play-state: paused;
 }
 
 .slider-track.reversed {
@@ -781,4 +793,71 @@ section .btn-outline {
   margin-top: 98px;
   background-color: var(--light-gray);
   padding: 40px 0;
+}
+
+.preview-title {
+  color: var(--black);
+  padding: 64px 0 40px;
+}
+
+.btn-preview {
+  margin: 52px auto 35px;
+}
+
+.spotlightPreview {
+  background-color: var(--black);
+  padding-bottom: 35px;
+}
+
+.spotlightPreview img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.spotlightPreview .btn {
+  max-width: 304px;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(13, 36, 13, .5);
+  opacity: 0;
+  transition: all .3s;
+  border-radius: 20px;
+}
+
+.overlay-btn {
+  width: max-content;
+  padding: 12px 16px;
+  background-color: var(--black);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 10px;
+  transform: translateY(50%);
+  transition: all .3s;
+  color: var(--white);
+}
+
+.overlay-btn img {
+  width: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.slider-item:hover .overlay,
+.productionItem:hover .overlay {
+  opacity: 1;
+}
+
+.slider-item:hover .overlay-btn,
+.productionItem:hover .overlay-btn {
+  transform: none;
 }

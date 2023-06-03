@@ -6,8 +6,8 @@ const Bio = () => {
   const [show, setShow] = useState(false);
 
   const handleShowMore = () => {
-    setShow(true);
-  }
+    setShow(!show);
+  };
 
   return (
     <section className="bio">
@@ -50,9 +50,10 @@ const Bio = () => {
                 In September 2022, STAL joined EA Records and became the first
                 French-speaking artist on the label.
               </p>
-              {
-                !show && <button className="btn btn-outline" onClick={handleShowMore}>Show More</button>
-              }
+
+              <button className="btn btn-outline" onClick={handleShowMore}>
+                {show ? "Hide": "Show More"}
+              </button>
             </div>
           </div>
         </div>

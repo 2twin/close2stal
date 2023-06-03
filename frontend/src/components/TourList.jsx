@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // import * as tour from "../../../../Tours.js";
 // console.log(tour)
+import axios from "axios";
+
 const initialTourState = {
   date: "",
   venue: "",
@@ -9,7 +11,7 @@ const initialTourState = {
   country: "",
 };
 
-const TourList = ({ tourList }) => {
+const TourList = ({ tourList, isLogged }) => {
   const isTourPage = window.location.pathname.startsWith("/tour");
 
   const [isEditing, setIsEditing] = useState(true);
@@ -27,35 +29,42 @@ const TourList = ({ tourList }) => {
     setIsEditing(!isEditing);
   };
 
-  const handleSubmit = async  (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const newDate = {
-     // id: crypto.randomUUID(),
+      // id: crypto.randomUUID(),
       date: tourState.date,
       venue: tourState.venue,
       city: tourState.city,
       country: tourState.country,
     };
 
-
-// il y a juste cette partie là à faire, la partie de la requête 
-console.log(newDate)
-await fetch('http://localhost:3000/tour',{
-method: 'POST',
-body: JSON.stringify(newDate),
-headers:{'Content-type': 'application/json'}
-});
-    tourList.push(newDate);
- toggleIsEditing()
-}
-    
+    const {data} = await axios.post('https://646ba0e17d3c1cae4ce41357.mockapi.io/api/v1/tour', newDate);
+    // // il y a juste cette partie là à faire, la partie de la requête
+    // console.log(newDate);
+    // await fetch("http://localhost:3000/tour", {
+    //   method: "POST",
+    //   body: JSON.stringify(newDate),
+    //   headers: { "Content-type": "application/json" },
+    // });
+    // tourList.push(newDate);
+    console.log(data);
+    toggleIsEditing();
+  };
 
   return (
     <section className="tour" id="tour">
       <div className="container">
         <div className="tour__inner">
           <h2 className="section-title">Tour</h2>
-          {isTourPage && <button className={"add-btn" + (!isEditing ? " close" : "")} onClick={toggleIsEditing}>+</button>}
+          {isTourPage && isLogged && (
+            <button
+              className={"add-btn" + (!isEditing ? " close" : "")}
+              onClick={toggleIsEditing}
+            >
+              +
+            </button>
+          )}
           {isEditing ? (
             <ul className="tour__list">
               <li className="tour__tabs">
@@ -112,7 +121,9 @@ headers:{'Content-type': 'application/json'}
                 onChange={handleInputChange}
                 required
               />
-              <button type="submit" className="btn btn-primary">Save</button>
+              <button type="submit" className="btn btn-primary">
+                Save
+              </button>
             </form>
           )}
           <Link to="/tour">

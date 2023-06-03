@@ -2,7 +2,7 @@ import React from 'react'
 
 import ProductionCategories from "../components/ProductionCategories";
 
-const Production = () => {
+const Production = ({music, video, isLogged}) => {
   return (
     <>
       <section className="productionHero">
@@ -14,7 +14,7 @@ const Production = () => {
           </div>
         </div>
       </section>
-      <ProductionCategories />
+      <ProductionCategories music={music} video={video} isLogged={isLogged}/>
     </>
   )
 }

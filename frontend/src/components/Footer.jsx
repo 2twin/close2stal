@@ -1,4 +1,5 @@
 import React from "react";
+
 import apple from "../assets/img/icon-apple.svg";
 import audiomack from "../assets/img/icon-audiomack.svg";
 import facebook from "../assets/img/icon-facebook.svg";
@@ -7,6 +8,7 @@ import soundcloud from "../assets/img/icon-soundcloud.svg";
 import spotify from "../assets/img/icon-spotify.svg";
 import twitter from "../assets/img/icon-twitter.svg";
 import youtube from "../assets/img/icon-youtube.svg";
+import logo from "../assets/img/grayscale-logo.svg";
 
 const Footer = () => {
   return (
@@ -57,13 +59,13 @@ const Footer = () => {
           </div>
           <div className="footer__bottom">
             <a className="footer__logo" href="#">
-              <img src="./assets/img/grayscale-logo.svg" alt="" />
+              <img src={logo} alt="" />
             </a>
             <div className="footer__policy">
               <a href="#">Privacy policy</a>
               <a href="#">Terms of use</a>
-              <a href="#">Ad choices</a>
-              <a href="#">Cookies policy</a>
+              {/* <a href="#">Ad choices</a>
+              <a href="#">Cookies policy</a> */}
             </div>
             <span className="copyright">Close2STAL ©2023</span>
           </div>
